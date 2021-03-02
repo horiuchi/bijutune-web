@@ -19,6 +19,8 @@ const RecoilApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon-180x180.png" />
+        <link rel="icon" type="image/png" href="/android-touch-icon-192x192.png" sizes="192x192" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
