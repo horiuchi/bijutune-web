@@ -1,9 +1,9 @@
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { RecoilRoot } from 'recoil';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Layout from '../components/Layout';
 import { useEffect } from 'react';
+import { RecoilRoot } from 'recoil';
+import Layout from '../components/Layout';
 
 const RecoilApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   useEffect(() => {
@@ -29,6 +29,6 @@ const RecoilApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       </Layout>
     </RecoilRoot>
   );
-}
+};
 
 export default RecoilApp;

@@ -7,10 +7,10 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { GetStaticProps } from 'next';
-import { BookData, getAllPath } from '../api/paths';
-import TabBar from '../components/TabBar';
+import { useRouter } from 'next/router';
 import { useCallback } from 'react';
-import { useRouter } from 'next/dist/client/router';
+import { BookData, getAllPath } from '../api/paths';
+import TitleBar from '../components/TitleBar';
 
 interface HomeProps {
   data: BookData[];
@@ -23,6 +23,9 @@ interface DvdCardProps {
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+  },
+  item: {
+    minWidth: 160,
   },
   image: {
     height: 320,
@@ -59,14 +62,11 @@ const Home: React.FC<HomeProps> = ({ data }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <TabBar index={0} />
+      <TitleBar title="びじゅチューン" />
       <Paper elevation={0}>
-        <Typography variant="h3" gutterBottom>
-          びじゅチューン DVD BOOK リスト
-        </Typography>
         <Grid container spacing={2}>
           {data.map((book) => (
-            <Grid item xs={4} key={book.name}>
+            <Grid className={classes.item} item xs={4} key={book.name}>
               <DvdCard book={book} />
             </Grid>
           ))}

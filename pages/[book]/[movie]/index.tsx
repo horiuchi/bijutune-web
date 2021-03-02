@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import TabBar from '../../../components/TabBar';
+import { useCallback } from 'react';
 import {
   BookData,
   getAllPath,
@@ -15,7 +15,7 @@ import {
   MovieGroup,
 } from '../../../api/paths';
 import MovieTree from '../../../components/MovieTree';
-import { useCallback } from 'react';
+import TitleBar from '../../../components/TitleBar';
 
 interface MovieProps {
   book: BookData;
@@ -78,7 +78,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ url, type, image }) => {
         controls
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography variant="h5" component="h2">
           {type}
         </Typography>
       </CardContent>
@@ -94,17 +94,19 @@ const YouTubeCard: React.FC<YouTubeCardProps> = ({ videoId }) => {
   return (
     <Card>
       <CardActionArea onClick={handleClick}>
-      <CardMedia
-        className={classes.youtube}
-        component="iframe"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
-        allowFullScreen
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">YouTube</Typography>
-      </CardContent>
+        <CardMedia
+          className={classes.youtube}
+          component="iframe"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            YouTube
+          </Typography>
+        </CardContent>
       </CardActionArea>
     </Card>
   );
@@ -114,12 +116,9 @@ const Movie: React.FC<MovieProps> = ({ book, movie }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <TabBar index={0} />
+      <TitleBar title={movie.name} />
+      <MovieTree book={book} current={movie.name} />
       <Paper elevation={0}>
-        <MovieTree book={book} current={movie.name} />
-        <Typography variant="h3" gutterBottom>
-          {movie.name}
-        </Typography>
         <Grid container spacing={2}>
           <Grid item>
             <MovieCard
