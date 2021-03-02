@@ -92,7 +92,6 @@ function toMovieGroup(data: ResponseData[], book: number): MovieGroup[] {
   const result: MovieGroup[] = [];
   for (const item of data) {
     const m = toMovie(item);
-    console.log('toMovie', m);
     if (m === undefined) {
       continue;
     }
@@ -121,7 +120,6 @@ function toMovieGroup(data: ResponseData[], book: number): MovieGroup[] {
       }
     }
   }
-  console.log('toMovieGroup', result);
   return result;
 }
 function toMovie(
