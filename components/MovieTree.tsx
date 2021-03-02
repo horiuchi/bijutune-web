@@ -31,11 +31,11 @@ const NextLink: React.FC<NextLinkProps> = ({ href, children }) => {
 };
 
 const MovieTree: React.FC<MovieTreeProps> = ({ book, current }) => {
-  const links = [<NextLink href="/">びじゅチューン</NextLink>];
+  const links = [<NextLink key='root' href="/">びじゅチューン</NextLink>];
   if (book) {
-    links.push(<NextLink href={`/${book.index}/`}>{book.name}</NextLink>);
+    links.push(<NextLink key={book.name} href={`/${book.index}/`}>{book.name}</NextLink>);
   }
-  links.push(<Typography color="textPrimary">{current}</Typography>);
+  links.push(<Typography key={current} color="textPrimary">{current}</Typography>);
   return <Breadcrumbs>{links}</Breadcrumbs>;
 };
 

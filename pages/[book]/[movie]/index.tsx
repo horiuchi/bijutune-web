@@ -1,4 +1,5 @@
 import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
@@ -7,8 +8,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import TabBar from '../../../components/TabBar';
-import { BookData, getAllPath, getMovieUrl, MovieGroup } from '../../../api/paths';
+import {
+  BookData,
+  getAllPath,
+  getMovieUrl,
+  MovieGroup,
+} from '../../../api/paths';
 import MovieTree from '../../../components/MovieTree';
+import { useCallback } from 'react';
 
 interface MovieProps {
   book: BookData;
@@ -21,6 +28,10 @@ interface MovieCardProps {
   image?: string;
 }
 
+interface YouTubeCardProps {
+  videoId: string;
+}
+
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -29,6 +40,12 @@ const useStyles = makeStyles({
     width: 300,
     height: 160,
     backgroundSize: 'contain',
+  },
+  youtube: {
+    width: 300,
+    height: 160,
+    backgroundSize: 'contain',
+    pointerEvents: 'none',
   },
 });
 
@@ -44,7 +61,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data = await getAllPath();
   const bookIndex = parseInt(params!.book!.toString(), 10);
   const movieIndex = parseInt(params!.movie!.toString(), 10);
-  return { props: { book: data[bookIndex], movie: data[bookIndex].movies[movieIndex] } };
+  return {
+    props: { book: data[bookIndex], movie: data[bookIndex].movies[movieIndex] },
+  };
 };
 
 const MovieCard: React.FC<MovieCardProps> = ({ url, type, image }) => {
@@ -67,16 +86,26 @@ const MovieCard: React.FC<MovieCardProps> = ({ url, type, image }) => {
   );
 };
 
-const YouTubeCard: React.FC<MovieCardProps> = ({ url, type }) => {
+const YouTubeCard: React.FC<YouTubeCardProps> = ({ videoId }) => {
   const classes = useStyles();
+  const handleClick = useCallback(() => {
+    window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+  }, []);
   return (
     <Card>
-      <CardMedia className={classes.image} component="iframe" src={url} frameBorder='0' allow='accelerometer; autoplay; encrypted-media; picture-in-picture' allowFullScreen />
+      <CardActionArea onClick={handleClick}>
+      <CardMedia
+        className={classes.youtube}
+        component="iframe"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+        allowFullScreen
+      />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {type}
-        </Typography>
+        <Typography gutterBottom variant="h5" component="h2">YouTube</Typography>
       </CardContent>
+      </CardActionArea>
     </Card>
   );
 };
@@ -100,7 +129,11 @@ const Movie: React.FC<MovieProps> = ({ book, movie }) => {
             />
           </Grid>
           <Grid item>
-            <MovieCard url={getMovieUrl(movie.explanatory.path)} type="解説" />
+            <MovieCard
+              url={getMovieUrl(movie.explanatory.path)}
+              type="解説"
+              image="/explanatory.jpg"
+            />
           </Grid>
           <Grid item>
             <MovieCard
@@ -110,10 +143,7 @@ const Movie: React.FC<MovieProps> = ({ book, movie }) => {
             />
           </Grid>
           <Grid item>
-            <YouTubeCard
-              url={`https://www.youtube.com/embed/${movie.youtubeId}`}
-              type="YouTube"
-            />
+            <YouTubeCard videoId={movie.youtubeId} />
           </Grid>
         </Grid>
       </Paper>
