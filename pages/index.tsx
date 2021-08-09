@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { BookData, getAllPath } from '../api/paths';
 import TitleBar from '../components/TitleBar';
+import { UnrecordedTitle } from './unrecorded';
 
 interface HomeProps {
   data: BookData[];
@@ -58,6 +59,26 @@ const DvdCard: React.FC<DvdCardProps> = ({ book }) => {
   );
 };
 
+const YoutubeCard: React.FC = () => {
+  const classes = useStyles();
+  const router = useRouter();
+  const handleClick = useCallback(() => {
+    void router.push(`/unrecorded`);
+  }, [router]);
+  return (
+    <Card>
+      <CardActionArea onClick={handleClick}>
+        <CardMedia className={classes.image} image={'/bijutune-1080.png'} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {UnrecordedTitle}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+};
+
 const Home: React.FC<HomeProps> = ({ data }) => {
   const classes = useStyles();
   return (
@@ -70,6 +91,7 @@ const Home: React.FC<HomeProps> = ({ data }) => {
               <DvdCard book={book} />
             </Grid>
           ))}
+          <YoutubeCard />
         </Grid>
       </Paper>
     </div>
