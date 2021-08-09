@@ -10,7 +10,7 @@
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write **/*.{js,ts,tsx}",
     "lint": "eslint --fix . --ext ts --ext tsx --ext js",
-    "check": "yarn lint && yarn type-check && yarn format"
+    "compile": "yarn lint && yarn type-check && yarn format"
   },
   "husky": {
     "hooks": {

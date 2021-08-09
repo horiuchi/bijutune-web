@@ -26,8 +26,12 @@ const TabBar: React.FC<TabBarProps> = ({ index }) => {
   return (
     <AppBar position="static">
       <Tabs value={index} centered>
-        {TabContents.map(({label, href}, i) => (
-          <LinkTab key={href} label={label} href={index !== i ? href : undefined} />
+        {TabContents.map(({ label, href }, i) => (
+          <LinkTab
+            key={href}
+            label={label}
+            href={index !== i ? href : undefined}
+          />
         ))}
       </Tabs>
     </AppBar>

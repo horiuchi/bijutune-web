@@ -130,7 +130,7 @@ const YOUTUBE_VIDEO_IDS = [
     'Yg8KciFtH9g', // スパイゴッデス
     '_y-5z-Rj1Vw', // アルノルフィーニ夫妻のベルト防衛戦
     'kmPnUtteRks', // 焔(ほのお)のお習字教室
-  ]
+  ],
 ];
 
 export const EXCLUDED_YOUTUBE_VIDEO_IDS = [];
