@@ -42,8 +42,8 @@ const DvdCard: React.FC<DvdCardProps> = ({ book }) => {
   const classes = useStyles();
   const router = useRouter();
   const handleClick = useCallback(() => {
-    router.push(`/${book.index}/`);
-  }, []);
+    void router.push(`/${book.index}/`);
+  }, [book.index, router]);
   return (
     <Card>
       <CardActionArea onClick={handleClick}>

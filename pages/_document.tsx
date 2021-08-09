@@ -5,11 +5,12 @@ import Document, {
   Head,
   Main,
   NextScript,
+  DocumentInitialProps,
 } from 'next/document';
 import React from 'react';
 
 class MaterialUIDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const sheets = new ServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
 
@@ -29,7 +30,7 @@ class MaterialUIDocument extends Document {
     };
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang="ja">
         <Head />

@@ -70,6 +70,7 @@ async function fetchGet(url: string): Promise<ResponseData[]> {
     console.warn('Error to call API.', res.status, url);
     throw new Error('Failed to fetch: ' + url);
   }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return await res.json();
 }
 
@@ -138,7 +139,7 @@ function toMovie(
     }
   }
 
-  const m = /^(\d+)\-(\d)\.(.+)\.mp4/.exec(data.name);
+  const m = /^(\d+)-(\d)\.(.+)\.mp4/.exec(data.name);
   if (m === null) {
     return;
   }

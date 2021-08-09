@@ -26,9 +26,9 @@ const NextLink: React.FC<NextLinkProps> = ({ href, children }) => {
   const handleClick = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
-      router.push(href);
+      void router.push(href);
     },
-    [href]
+    [href, router]
   );
   return (
     <Link href={href} onClick={handleClick}>

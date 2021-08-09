@@ -44,7 +44,7 @@ export const getStaticPaths: GetStaticPaths = async (_) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data = await getAllPath();
-  const index = parseInt(params!.book!.toString(), 10);
+  const index = parseInt(params?.book?.toString() ?? '', 10);
   return { props: { book: data[index] } };
 };
 
@@ -52,8 +52,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ bookIndex, movie }) => {
   const classes = useStyles();
   const router = useRouter();
   const handleClick = useCallback(() => {
-    router.push(`/${bookIndex}/${movie.index}/`);
-  }, []);
+    void router.push(`/${bookIndex}/${movie.index}/`);
+  }, [bookIndex, movie.index, router]);
   return (
     <Card className={classes.card}>
       <CardActionArea onClick={handleClick}>

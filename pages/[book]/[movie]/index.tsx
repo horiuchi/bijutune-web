@@ -90,7 +90,7 @@ const YouTubeCard: React.FC<YouTubeCardProps> = ({ videoId }) => {
   const classes = useStyles();
   const handleClick = useCallback(() => {
     window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
-  }, []);
+  }, [videoId]);
   return (
     <Card>
       <CardActionArea onClick={handleClick}>

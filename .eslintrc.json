@@ -3,12 +3,10 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
+    "prettier"
   ],
   "plugins": [
     "sort-imports-es6-autofix",
@@ -41,6 +39,9 @@
         "ignoreVoid": true
       }
     ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
     // recommended configs from the typescript eslint repo - turn off conflicting import rules
     "import/named": 0,
     "import/namespace": 0,
