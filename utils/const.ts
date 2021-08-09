@@ -102,6 +102,35 @@ const YOUTUBE_VIDEO_IDS = [
     'uSqOTbeq1eA', // 再配達には金印を
     'hQ5WDcanR6g', // 夏秋草図屏風デート
   ],
+  [
+    // 6
+    'cIyIGsXHeB0', // エスパーカフェ
+    'U2FBIWPEs2E', // アルルの訳あり物件
+    'JRpbC415jtM', // 電気さえあれば
+    'v394cL3OcS4', // 松林ズ
+    '6Gq2onDDEl0', // ダンス寿司
+    '1sWeFk77Xy8', // ひそひそと、秘儀の間で
+    'mBkH2RBVEkE', // お互い擬態
+    'wzwA7ccvNTc', // ひとよだけ巡査
+    'QAY8LaDLFsc', // 犬派はモノクロ猫派はカラー
+    'QMPkAreByhQ', // 私たちが削るべきは床
+    '5PrxG1RELg0', // 納涼シアター
+    'mbtfWIk7wyw', // 歩く泡
+    'KhKIBXiolow', // 落穂拾子
+    '0gwhPn4bOr4', // 竜田川にフタをする
+    'lH2_zy1imo4', // デンタルクリニック死の島
+    'jEpevtrwi2o', // 続いては、信貴山の石橋さ〜ん
+    '-fuKaBwqosk', // プリマヴェーラに家庭訪問
+  ],
+  [
+    // 7
+    'zV1gwR-x52s', // 鶴下ウェイ
+    'AHuAHO5Hi8Y', // 書紀に必要なギャルの精神
+    'k_uA3phAxXc', // 玉虫の家庭教師が玉虫厨子
+    'Yg8KciFtH9g', // スパイゴッデス
+    '_y-5z-Rj1Vw', // アルノルフィーニ夫妻のベルト防衛戦
+    'kmPnUtteRks', // 焔(ほのお)のお習字教室
+  ]
 ];
 
 export const EXCLUDED_YOUTUBE_VIDEO_IDS = [];

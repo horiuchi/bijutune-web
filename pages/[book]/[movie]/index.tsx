@@ -59,8 +59,8 @@ export const getStaticPaths: GetStaticPaths = async (_) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data = await getAllPath();
-  const bookIndex = parseInt(params!.book!.toString(), 10);
-  const movieIndex = parseInt(params!.movie!.toString(), 10);
+  const bookIndex = parseInt(params?.book?.toString() ?? '', 10);
+  const movieIndex = parseInt(params?.movie?.toString() ?? '', 10);
   return {
     props: { book: data[bookIndex], movie: data[bookIndex].movies[movieIndex] },
   };
@@ -95,12 +95,9 @@ const YouTubeCard: React.FC<YouTubeCardProps> = ({ videoId }) => {
     <Card>
       <CardActionArea onClick={handleClick}>
         <CardMedia
-          className={classes.youtube}
-          component="iframe"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
+          className={classes.image}
+          component="img"
+          src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
         />
         <CardContent>
           <Typography variant="h5" component="h2">
