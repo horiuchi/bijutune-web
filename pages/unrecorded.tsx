@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useCallback } from 'react';
 import MovieTree from '../components/MovieTree';
 import TitleBar from '../components/TitleBar';
-import { YOUTUBE_VIDEO_IDS } from '../utils/const';
+import { getUnrecordedVideos } from '../utils/unrecorded';
 
 export const UnrecordedTitle = '未収録曲';
 
@@ -63,7 +63,7 @@ const YouTubeCard: React.FC<YouTubeCardProps> = ({ videoId, name }) => {
 
 const Unrecorded: React.FC = () => {
   const classes = useStyles();
-  const youtubes = YOUTUBE_VIDEO_IDS[YOUTUBE_VIDEO_IDS.length - 1];
+  const youtubes = getUnrecordedVideos();
   return (
     <div className={classes.root}>
       <TitleBar title={UnrecordedTitle} />

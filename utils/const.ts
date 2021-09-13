@@ -1,3 +1,8 @@
+export interface YoutubeVideoInfo {
+  id: string;
+  name: string;
+}
+
 export function getBookImage(index: number): string {
   return `/bijutune${index + 1}.jpg`;
 }
@@ -6,11 +11,7 @@ export function getMovieImage(bookIndex: number, index: number): string {
   return `/book${bookIndex + 1}/movie${index + 1}.jpg`;
 }
 
-interface YoutubeVideoInfo {
-  id: string;
-  name: string;
-}
-export const YOUTUBE_VIDEO_IDS: YoutubeVideoInfo[][] = [
+const YOUTUBE_VIDEO_IDS: YoutubeVideoInfo[][] = [
   [
     // 1
     { id: 'RSAN-L9JljM', name: '委員長はヴィーナス' },
@@ -125,15 +126,6 @@ export const YOUTUBE_VIDEO_IDS: YoutubeVideoInfo[][] = [
     { id: 'lH2_zy1imo4', name: 'デンタルクリニック死の島' },
     { id: 'jEpevtrwi2o', name: '続いては、信貴山の石橋さ〜ん' },
     { id: '-fuKaBwqosk', name: 'プリマヴェーラに家庭訪問' },
-  ],
-  [
-    // 7
-    { id: 'zV1gwR-x52s', name: '鶴下ウェイ' },
-    { id: 'AHuAHO5Hi8Y', name: '書紀に必要なギャルの精神' },
-    { id: 'k_uA3phAxXc', name: '玉虫の家庭教師が玉虫厨子' },
-    { id: 'Yg8KciFtH9g', name: 'スパイゴッデス' },
-    { id: '_y-5z-Rj1Vw', name: 'アルノルフィーニ夫妻のベルト防衛戦' },
-    { id: 'kmPnUtteRks', name: '焔(ほのお)のお習字教室' },
   ],
 ];
 
