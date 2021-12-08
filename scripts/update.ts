@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import {writeFile } from 'fs/promises';
+import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import * as qs from 'querystring';
 
@@ -81,7 +81,11 @@ async function outputFile(items: ResultItem[]): Promise<void> {
   }
 
   // from https://www.youtube.com/playlist?list=PLcynJ47QaWNuynFw5-uESyLHgHXxhKApj
-  const UNRECORDED_VIDEO_IDS: YoutubeVideoInfo[] =${JSON.stringify(items, null, 2)};`;
+  const UNRECORDED_VIDEO_IDS: YoutubeVideoInfo[] =${JSON.stringify(
+    items,
+    null,
+    2
+  )};`;
 
   await writeFile(outputPath, content, 'utf-8');
 }

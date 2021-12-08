@@ -34,4 +34,16 @@ const UNRECORDED_VIDEO_IDS: YoutubeVideoInfo[] = [
     id: 'gn5eyDB5cTY',
     name: '銅鐸仮面舞踏会',
   },
+  {
+    id: 'l2af7z_Yylk',
+    name: '葉が地に着くその前に',
+  },
+  {
+    id: '3UIvjmmyQmY',
+    name: '海の幸のチューン',
+  },
+  {
+    id: 'oAReH7gzBcU',
+    name: '猫の手もアダムの手も借りたい',
+  },
 ];
