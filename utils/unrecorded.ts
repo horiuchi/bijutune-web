@@ -46,4 +46,20 @@ const UNRECORDED_VIDEO_IDS: YoutubeVideoInfo[] = [
     id: 'oAReH7gzBcU',
     name: '猫の手もアダムの手も借りたい',
   },
+  {
+    id: 'xmTTN8FssXY',
+    name: 'バベルの塔にカフェOPEN',
+  },
+  {
+    id: 'UaJoskKM8Dg',
+    name: '老猿は主役じゃなくても',
+  },
+  {
+    id: 'BETOStHXNr0',
+    name: 'スタイリングbyキトラ',
+  },
+  {
+    id: 'pkEZvpVtVEk',
+    name: '染める蛇使い',
+  },
 ];
