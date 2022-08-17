@@ -62,4 +62,16 @@ const UNRECORDED_VIDEO_IDS: YoutubeVideoInfo[] = [
     id: 'pkEZvpVtVEk',
     name: '染める蛇使い',
   },
+  {
+    id: 'IbWzfF-mPzg',
+    name: '土偶迷路',
+  },
+  {
+    id: 'u2eFP8kZ_ws',
+    name: '窓ごしの孔雀明王',
+  },
+  {
+    id: 'PA26d9_o7bk',
+    name: '検証・モネの筆',
+  },
 ];
